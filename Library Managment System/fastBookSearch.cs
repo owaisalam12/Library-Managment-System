@@ -1,0 +1,124 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SQLite;
+namespace Library_Managment_System
+{
+    public partial class fastBookSearch : Form
+    {
+        public fastBookSearch()
+        {
+            InitializeComponent();
+        }
+        database db = new database();
+        private void gridload()
+        {
+            try
+            {
+
+                string query = "SELECT tblbook.bookid AS ID , tblbook.oldaccessionno AS AccNo, tblbook.City AS CAN,tblbook.Typeid AS CallNo,tblbook.Regid AS CupboardNo, tblbook.Name AS Book_Name, tblauthor.name AS Author_Name, tblpublisher.name AS Publisher_Name, tblbook.Edition, tblcatagory.Desc AS Book_Catagory,tblbook.noofbooks AS Quantity, tblbook.Status FROM ((tblauthor INNER JOIN tblbook ON tblauthor.authorid = tblbook.authorid) INNER JOIN tblcatagory ON tblbook.catagoryid = tblcatagory.catagoryid) INNER JOIN tblpublisher ON tblbook.pubid = tblpublisher.pubid;";
+                SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                db.OpenConnection();
+                var result = myCommand.ExecuteNonQuery();
+
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(myCommand);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+                dataGridView1.Columns[0].Width = 25;
+                dataGridView1.Columns[1].Width = 40;
+                dataGridView1.Columns[2].Width = 40;
+                dataGridView1.Columns[3].Width = 40;
+                dataGridView1.Columns[4].Width = 45;
+                dataGridView1.Columns[5].Width = 180;
+                dataGridView1.Columns[6].Width = 110;
+                dataGridView1.Columns[7].Width = 100;
+                dataGridView1.Columns[8].Width = 50;
+                dataGridView1.Columns[9].Width = 50;
+                dataGridView1.Columns[10].Width = 50;
+                dataGridView1.Columns[11].Width = 50;
+                db.CloseConnection();
+                //  MessageBox.Show("Rows Added: {0}", result.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                string query;
+              
+                if (comboBox3.SelectedIndex == 1)
+                {
+                    query = "SELECT tblbook.bookid AS ID , tblbook.oldaccessionno AS AccNo, tblbook.City AS CAN,tblbook.Typeid AS CallNo,tblbook.Regid AS CupboardNo, tblbook.Name AS Book_Name, tblauthor.name AS Author_Name, tblpublisher.name AS Publisher_Name, tblbook.Edition, tblcatagory.Desc AS Book_Catagory,tblbook.noofbooks AS Quantity, tblbook.Status FROM ((tblauthor INNER JOIN tblbook ON tblauthor.authorid = tblbook.authorid) INNER JOIN tblcatagory ON tblbook.catagoryid = tblcatagory.catagoryid) INNER JOIN tblpublisher ON tblbook.pubid = tblpublisher.pubid WHERE tblbook.City = '" + textBox1.Text + "'";
+                }
+                else if (comboBox3.SelectedIndex == 2)
+                {
+                    query = "SELECT tblbook.bookid AS ID , tblbook.oldaccessionno AS AccNo, tblbook.City AS CAN,tblbook.Typeid AS CallNo,tblbook.Regid AS CupboardNo, tblbook.Name AS Book_Name, tblauthor.name AS Author_Name, tblpublisher.name AS Publisher_Name, tblbook.Edition, tblcatagory.Desc AS Book_Catagory,tblbook.noofbooks AS Quantity, tblbook.Status FROM ((tblauthor INNER JOIN tblbook ON tblauthor.authorid = tblbook.authorid) INNER JOIN tblcatagory ON tblbook.catagoryid = tblcatagory.catagoryid) INNER JOIN tblpublisher ON tblbook.pubid = tblpublisher.pubid WHERE tblbook.oldaccessionno = '" + textBox1.Text + "'";
+                }
+                else if (comboBox3.SelectedIndex == 3)
+                {
+                    query = "SELECT tblbook.bookid AS ID , tblbook.oldaccessionno AS AccNo, tblbook.City AS CAN,tblbook.Typeid AS CallNo,tblbook.Regid AS CupboardNo, tblbook.Name AS Book_Name, tblauthor.name AS Author_Name, tblpublisher.name AS Publisher_Name, tblbook.Edition, tblcatagory.Desc AS Book_Catagory,tblbook.noofbooks AS Quantity, tblbook.Status FROM ((tblauthor INNER JOIN tblbook ON tblauthor.authorid = tblbook.authorid) INNER JOIN tblcatagory ON tblbook.catagoryid = tblcatagory.catagoryid) INNER JOIN tblpublisher ON tblbook.pubid = tblpublisher.pubid WHERE tblbook.Typeid = '" + textBox1.Text + "'";
+                }
+               else //for 0
+                {
+                    query = "SELECT tblbook.bookid AS ID , tblbook.oldaccessionno AS AccNo, tblbook.City AS CAN,tblbook.Typeid AS CallNo,tblbook.Regid AS CupboardNo, tblbook.Name AS Book_Name, tblauthor.name AS Author_Name, tblpublisher.name AS Publisher_Name, tblbook.Edition, tblcatagory.Desc AS Book_Catagory,tblbook.noofbooks AS Quantity, tblbook.Status FROM ((tblauthor INNER JOIN tblbook ON tblauthor.authorid = tblbook.authorid) INNER JOIN tblcatagory ON tblbook.catagoryid = tblcatagory.catagoryid) INNER JOIN tblpublisher ON tblbook.pubid = tblpublisher.pubid WHERE tblbook.Name like ('%" + textBox1.Text + "%')";
+
+                }
+
+                SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                db.OpenConnection();
+                var result = myCommand.ExecuteNonQuery();
+
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(myCommand);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+                dataGridView1.Columns[0].Width = 25;
+                dataGridView1.Columns[1].Width = 40;
+                dataGridView1.Columns[2].Width = 40;
+                dataGridView1.Columns[3].Width = 40;
+                dataGridView1.Columns[4].Width = 45;
+                dataGridView1.Columns[5].Width = 180;
+                dataGridView1.Columns[6].Width = 110;
+                dataGridView1.Columns[7].Width = 100;
+                dataGridView1.Columns[8].Width = 50;
+                dataGridView1.Columns[9].Width = 50;
+                dataGridView1.Columns[10].Width = 50;
+                dataGridView1.Columns[11].Width = 50;
+                db.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void fastBookSearch_Load(object sender, EventArgs e)
+        {
+            comboBox3.SelectedIndex = 0;
+            gridload();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            comboBox3.SelectedIndex = 0;
+            gridload();
+
+        }
+    }
+}

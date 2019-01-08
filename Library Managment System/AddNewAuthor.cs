@@ -43,7 +43,7 @@ namespace Library_Managment_System
         {
             grid_load();
         }
-
+        //search
         private void textBox3_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -65,7 +65,7 @@ namespace Library_Managment_System
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        //addnew
         private void button1_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
@@ -92,10 +92,8 @@ namespace Library_Managment_System
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            
-
         }
+        //to show values on textbox
         int indexrow;
         int authid;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,7 +105,7 @@ namespace Library_Managment_System
             textBox2.Text = row.Cells[2].Value.ToString();
             authid = Convert.ToInt32(row.Cells[0].Value.ToString());
         }
-
+        //edit
         private void button2_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))

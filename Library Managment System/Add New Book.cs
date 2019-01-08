@@ -30,8 +30,33 @@ namespace Library_Managment_System
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
+            textBox1.Text = lastCAN();
         }
 
+        //get CAN
+        private string lastCAN()
+        {
+
+            try
+            {
+                database db = new database();
+
+                string query = "select city from tblbook order by bookid desc limit 1";
+
+                SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                db.OpenConnection();
+                string result = Convert.ToString(myCommand.ExecuteScalar());
+                db.CloseConnection();
+                //MessageBox.Show("Rows Added: {0}", result.ToString());
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
 
         //get pubid
         private string publisherID(string publisherText)
@@ -146,25 +171,64 @@ namespace Library_Managment_System
             }
             else
             {
-                try
-                {
-                    database db = new database();
 
-                    string query = "INSERT INTO tblbook ( Name, Edition, City, Country,Typeid,pubid,catagoryid,authorid,Regid, noofbooks, purchasedate, oldaccessionno, language, Publishedyear, volume, pages, price, currancy, translatdby ) VALUES ( '" + textBox9.Text + "', '" + textBox3.Text + "', '" + textBox1.Text + "', '" + comboBox3.Text + "','" + textBox4.Text + "', '" + publisherID(textBox8.Text) + "', '" + categoryID(textBox6.Text) + "','" + authorID(textBox16.Text) + "','" + textBox15.Text + "',  '" + textBox5.Text + "', '" + dateTimePicker1.Text + "', '" + textBox2.Text + "', '" + comboBox2.Text + "', '" + textBox7.Text + "', '" + textBox18.Text + "', '" + textBox13.Text + "', '" + textBox11.Text + "', '" + comboBox1.Text + "', '" + textBox12.Text + "' );";
-                    SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
-                    db.OpenConnection();
-                    var result = myCommand.ExecuteNonQuery();
-                    db.CloseConnection();
-                    MessageBox.Show("Rows Added: {0}", result.ToString());
-                }
-                catch (Exception ex)
+                if (checkForCAN(textBox1.Text))
                 {
-                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    try
+                    {
+                        database db = new database();
 
+                        string query = "INSERT INTO tblbook ( Name, Edition, City, Country,Typeid,pubid,catagoryid,authorid,Regid, noofbooks, purchasedate, oldaccessionno, language, Publishedyear, volume, pages, price, currancy, translatdby ) VALUES ( '" + textBox9.Text + "', '" + textBox3.Text + "', '" + textBox1.Text + "', '" + comboBox3.Text + "','" + textBox4.Text + "', '" + publisherID(textBox8.Text) + "', '" + categoryID(textBox6.Text) + "','" + authorID(textBox16.Text) + "','" + textBox15.Text + "',  '" + textBox5.Text + "', '" + dateTimePicker1.Text + "', '" + textBox2.Text + "', '" + comboBox2.Text + "', '" + textBox7.Text + "', '" + textBox18.Text + "', '" + textBox13.Text + "', '" + textBox11.Text + "', '" + comboBox1.Text + "', '" + textBox12.Text + "' );";
+                        SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                        db.OpenConnection();
+                        var result = myCommand.ExecuteNonQuery();
+                        db.CloseConnection();
+                        MessageBox.Show("Succesfull!","Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("CAN already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }
+        
+        private bool checkForCAN(String canNo)
+        {
+            try
+            {
+                database db = new database();
+
+                string query = "select * from tblbook where city='" + canNo + "'";
+
+                SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                db.OpenConnection();
+                string result = Convert.ToString(myCommand.ExecuteScalar());
+                db.CloseConnection();
+                //MessageBox.Show("Rows Added: {0}", result.ToString());
+                if (String.IsNullOrEmpty(result))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
      
     }
 }

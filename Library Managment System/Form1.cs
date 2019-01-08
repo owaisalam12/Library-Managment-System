@@ -28,53 +28,51 @@ namespace Library_Managment_System
         {
             string username = textBox1.Text;
             string password = textBox2.Text;
-            database db = new database();
-
-            //insert into database
-            //string query = "INSERT INTO users('username','password') VALUES (@username,@password)";
-            //SQLiteCommand myCommand = new SQLiteCommand(query,db.myConnection);
-            //db.OpenConnection();
-            //myCommand.Parameters.AddWithValue("@username",username);
-            //myCommand.Parameters.AddWithValue("@password",password);
-            //var result = myCommand.ExecuteNonQuery();
-            //db.CloseConnection();
-            //MessageBox.Show("Rows Added: {0}", result.ToString());
-            //db.CloseConnection();
-            // MessageBox.Show("Rows Added: {0}", result.ToString());
-
-            //select from database
-
-            string query = "SELECT * FROM users WHERE username='" + username + "' and password='" + password + "'";
-            SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
-            db.OpenConnection();
-            // myCommand.Parameters.AddWithValue("@username",username);
-            //myCommand.Parameters.AddWithValue("@password",password);
-            SQLiteDataReader result = myCommand.ExecuteReader();
-            int count = 0;
-            // if (result.HasRows)
-            //{
-            while (result.Read())
+            
+            if ((username == "Admin")&&(password == "farooqi"))
             {
-
-                count++;
-                //MessageBox.Show(result.GetString(0));
-            }
-            if (count == 1)
-            {
-                MessageBox.Show("Logged In ");
+                MessageBox.Show("Login Succesfull", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 mdi_userParent mdParent = new mdi_userParent();
+                mdParent.FormClosed += new FormClosedEventHandler(mdi_FormClosed);
                 mdParent.Show();
+                //this.Close();
             }
             else
             {
-                MessageBox.Show("Incorrect username or password");
+                MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
             }
-            // }
-            db.CloseConnection();
-            //MessageBox.Show("Rows Added: {0}", result.ToString();
+
+            
+        }
+        private void mdi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = "Admin";
+            textBox1.Enabled = false;
+            this.ActiveControl = textBox2;
+           // textBox2.Focus();
+        }
 
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    button1.PerformClick();
+            //}
+        }
     }
 }

@@ -67,7 +67,7 @@ namespace Library_Managment_System
         private void button1_Click(object sender, EventArgs e)
         {
             AddNewCategory add = new AddNewCategory();
-            add.Show();
+            add.ShowDialog();
         }
         //refresh
         private void button2_Click(object sender, EventArgs e)

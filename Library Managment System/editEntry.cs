@@ -146,7 +146,7 @@ namespace Library_Managment_System
                     db.OpenConnection();
                     var result = myCommand.ExecuteNonQuery();
                     db.CloseConnection();
-                    MessageBox.Show("Rows Added: {0}", result.ToString());
+                    MessageBox.Show("Succesfull!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {

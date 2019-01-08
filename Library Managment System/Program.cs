@@ -16,7 +16,7 @@ namespace Library_Managment_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddNewDesignation());
+            Application.Run(new Form1());
         }
     }
 }

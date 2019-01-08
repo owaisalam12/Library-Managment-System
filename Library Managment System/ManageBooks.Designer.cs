@@ -33,11 +33,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SkipToEnd = new System.Windows.Forms.ToolStripButton();
             this.Next = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Back = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.recordText = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,12 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(819, 448);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
             // toolStrip1
             // 
@@ -66,11 +71,11 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SkipToEnd,
             this.Next,
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
             this.Back,
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.recordText,
+            this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 448);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -86,6 +91,7 @@
             this.SkipToEnd.Name = "SkipToEnd";
             this.SkipToEnd.Size = new System.Drawing.Size(23, 22);
             this.SkipToEnd.Text = "Skip to end";
+            this.SkipToEnd.Click += new System.EventHandler(this.SkipToEnd_Click);
             // 
             // Next
             // 
@@ -95,23 +101,7 @@
             this.Next.Name = "Next";
             this.Next.Size = new System.Drawing.Size(23, 22);
             this.Next.Text = "Next";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(39, 22);
-            this.toolStripLabel1.Text = ": Page";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.Next.Click += new System.EventHandler(this.Next_Click);
             // 
             // Back
             // 
@@ -121,6 +111,7 @@
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(23, 22);
             this.Back.Text = "Back";
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // toolStripButton4
             // 
@@ -130,6 +121,30 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "Skip to start";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // recordText
+            // 
+            this.recordText.Name = "recordText";
+            this.recordText.Size = new System.Drawing.Size(0, 22);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton9.AutoToolTip = false;
+            this.toolStripButton9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(101, 22);
+            this.toolStripButton9.Text = "Find Borrower";
+            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // ManageBooks
             // 
@@ -139,6 +154,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ManageBooks";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Books";
             this.Load += new System.EventHandler(this.ManageBooks_Load);
@@ -151,15 +167,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton SkipToEnd;
         private System.Windows.Forms.ToolStripButton Next;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton Back;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.ToolStripLabel recordText;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
     }
 }

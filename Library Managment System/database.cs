@@ -13,9 +13,10 @@ namespace Library_Managment_System
         public SQLiteConnection myConnection;
         public database()
         {
-            myConnection = new SQLiteConnection("Data Source=database.sqlite;datetimeformat = CurrentCulture");
-
-            if (!File.Exists("./database.sqlite")){
+            
+            myConnection = new SQLiteConnection("Data Source=./database/database.sqlite;datetimeformat = CurrentCulture;");
+          
+            if (!File.Exists("./database/database.sqlite")){
                 SQLiteConnection.CreateFile("database.sqlite");
                 //MessageBox.Show("database created");
             }

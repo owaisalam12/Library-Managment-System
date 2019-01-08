@@ -8,12 +8,30 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Library_Managment_System</RootNamespace>
-    <AssemblyName>Library Managment System</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AssemblyName>LMS 2019</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\oalam\OneDrive\Desktop\setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,7 +52,31 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F0BC1D8B7676A80067412442B2C0BE8E1CD71A48</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Library Managment System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>taskbarlogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="SimpleDataGridViewPaging">
       <HintPath>.\SimpleDataGridViewPaging.dll</HintPath>
     </Reference>
@@ -44,6 +86,8 @@
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.1\lib\net451\System.Data.SQLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +117,12 @@
     <Compile Include="AddNewCategory.Designer.cs">
       <DependentUpon>AddNewCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNewDepartsec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewDepartsec.Designer.cs">
+      <DependentUpon>AddNewDepartsec.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewDesignation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +141,95 @@
     <Compile Include="AddNewPublisher.Designer.cs">
       <DependentUpon>AddNewPublisher.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdvancedBookSearch%28Issued%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedBookSearch%28Issued%29.Designer.cs">
+      <DependentUpon>AdvancedBookSearch%28Issued%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedBookSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedBookSearch.Designer.cs">
+      <DependentUpon>AdvancedBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bookissuancereport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bookissuancereport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="castingtest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>castingtest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crysView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crysView.Designer.cs">
+      <DependentUpon>crysView.cs</DependentUpon>
+    </Compile>
     <Compile Include="database.cs" />
+    <Compile Include="databaseDataSet.cs">
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="databaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="databaseView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>databaseView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetqr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetqr.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="deletePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deletePassword.Designer.cs">
+      <DependentUpon>deletePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editEmployee.Designer.cs">
+      <DependentUpon>editEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="editEntry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="editEntry.Designer.cs">
       <DependentUpon>editEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editIssue.Designer.cs">
+      <DependentUpon>editIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="entirelistofbooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="entirelistofbooks.Designer.cs">
+      <DependentUpon>entirelistofbooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fastBookSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fastBookSearch.Designer.cs">
+      <DependentUpon>fastBookSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -104,11 +237,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IssueBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueBook.Designer.cs">
+      <DependentUpon>IssueBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageBooks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageBooks.Designer.cs">
       <DependentUpon>ManageBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployee.Designer.cs">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageIssue.Designer.cs">
+      <DependentUpon>ManageIssue.cs</DependentUpon>
     </Compile>
     <Compile Include="mdi_userParent.cs">
       <SubType>Form</SubType>
@@ -124,17 +275,178 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportAuthorWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportAuthorWise%28View%29.Designer.cs">
+      <DependentUpon>ReportAuthorWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportAuthorWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportAuthorWise.Designer.cs">
+      <DependentUpon>ReportAuthorWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBorrowerWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportBorrowerWise%28View%29.Designer.cs">
+      <DependentUpon>ReportBorrowerWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBorrowerWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportBorrowerWise.Designer.cs">
+      <DependentUpon>ReportBorrowerWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCategoryWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCategoryWise%28View%29.Designer.cs">
+      <DependentUpon>ReportCategoryWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCategoryWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCategoryWise.Designer.cs">
+      <DependentUpon>ReportCategoryWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCountryWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCountryWise%28View%29.Designer.cs">
+      <DependentUpon>ReportCountryWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCountryWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCountryWise.Designer.cs">
+      <DependentUpon>ReportCountryWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCupboardWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCupboardWise%28View%29.Designer.cs">
+      <DependentUpon>ReportCupboardWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCupboardWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCupboardWise.Designer.cs">
+      <DependentUpon>ReportCupboardWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDateWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDateWise%28View%29.Designer.cs">
+      <DependentUpon>ReportDateWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDateWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDateWise.Designer.cs">
+      <DependentUpon>ReportDateWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportLanguageWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportLanguageWise%28View%29.Designer.cs">
+      <DependentUpon>ReportLanguageWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportLanguageWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportLanguageWise.Designer.cs">
+      <DependentUpon>ReportLanguageWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPublisherWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPublisherWise%28View%29.Designer.cs">
+      <DependentUpon>ReportPublisherWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPublisherWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPublisherWise.Designer.cs">
+      <DependentUpon>ReportPublisherWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSectionWise%28View%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportSectionWise%28View%29.Designer.cs">
+      <DependentUpon>ReportSectionWise%28View%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSectionWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportSectionWise.Designer.cs">
+      <DependentUpon>ReportSectionWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\bookissuance.cs">
+      <DependentUpon>bookissuance.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\bookissuance%28datewise%29.cs">
+      <DependentUpon>bookissuance%28datewise%29.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\bookissuance%28borrowerwise%29.cs">
+      <DependentUpon>bookissuance%28borrowerwise%29.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\CrystalReportas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\listofbooks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>listofbooks.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="selectAuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="selectAuthorForm.Designer.cs">
       <DependentUpon>selectAuthorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectBook.Designer.cs">
+      <DependentUpon>SelectBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="selectBorrower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectBorrower.Designer.cs">
+      <DependentUpon>selectBorrower.cs</DependentUpon>
+    </Compile>
     <Compile Include="selectCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="selectCategoryForm.Designer.cs">
       <DependentUpon>selectCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="selectDepartsecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectDepartsecForm.Designer.cs">
+      <DependentUpon>selectDepartsecForm.cs</DependentUpon>
     </Compile>
     <Compile Include="selectDesignationForm.cs">
       <SubType>Form</SubType>
@@ -148,6 +460,22 @@
     <Compile Include="selectPublishersForm.Designer.cs">
       <DependentUpon>selectPublishersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shorcuts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shorcuts.Designer.cs">
+      <DependentUpon>Shorcuts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>viewDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="viewDataSetIssue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>viewDataSetIssue.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add New Book.resx">
       <DependentUpon>Add New Book.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewCategory.resx">
       <DependentUpon>AddNewCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewDepartsec.resx">
+      <DependentUpon>AddNewDepartsec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewDesignation.resx">
       <DependentUpon>AddNewDesignation.cs</DependentUpon>
@@ -166,14 +497,55 @@
     <EmbeddedResource Include="AddNewPublisher.resx">
       <DependentUpon>AddNewPublisher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedBookSearch%28Issued%29.resx">
+      <DependentUpon>AdvancedBookSearch%28Issued%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedBookSearch.resx">
+      <DependentUpon>AdvancedBookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookissuancereport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bookissuancereport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crysView.resx">
+      <DependentUpon>crysView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deletePassword.resx">
+      <DependentUpon>deletePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editEmployee.resx">
+      <DependentUpon>editEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editEntry.resx">
       <DependentUpon>editEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editIssue.resx">
+      <DependentUpon>editIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="entirelistofbooks.resx">
+      <DependentUpon>entirelistofbooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fastBookSearch.resx">
+      <DependentUpon>fastBookSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IssueBook.resx">
+      <DependentUpon>IssueBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageBooks.resx">
       <DependentUpon>ManageBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployee.resx">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageIssue.resx">
+      <DependentUpon>ManageIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdi_userParent.resx">
       <DependentUpon>mdi_userParent.cs</DependentUpon>
@@ -183,18 +555,97 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="ReportAuthorWise%28View%29.resx">
+      <DependentUpon>ReportAuthorWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportAuthorWise.resx">
+      <DependentUpon>ReportAuthorWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBorrowerWise%28View%29.resx">
+      <DependentUpon>ReportBorrowerWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBorrowerWise.resx">
+      <DependentUpon>ReportBorrowerWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCategoryWise%28View%29.resx">
+      <DependentUpon>ReportCategoryWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCategoryWise.resx">
+      <DependentUpon>ReportCategoryWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCountryWise%28View%29.resx">
+      <DependentUpon>ReportCountryWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCountryWise.resx">
+      <DependentUpon>ReportCountryWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCupboardWise%28View%29.resx">
+      <DependentUpon>ReportCupboardWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCupboardWise.resx">
+      <DependentUpon>ReportCupboardWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDateWise%28View%29.resx">
+      <DependentUpon>ReportDateWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDateWise.resx">
+      <DependentUpon>ReportDateWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportLanguageWise%28View%29.resx">
+      <DependentUpon>ReportLanguageWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportLanguageWise.resx">
+      <DependentUpon>ReportLanguageWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPublisherWise%28View%29.resx">
+      <DependentUpon>ReportPublisherWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPublisherWise.resx">
+      <DependentUpon>ReportPublisherWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSectionWise%28View%29.resx">
+      <DependentUpon>ReportSectionWise%28View%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSectionWise.resx">
+      <DependentUpon>ReportSectionWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\bookissuance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bookissuance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\bookissuance%28datewise%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bookissuance%28datewise%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\bookissuance%28borrowerwise%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>bookissuance%28borrowerwise%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrystalReportas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\listofbooks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>listofbooks.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="selectAuthorForm.resx">
       <DependentUpon>selectAuthorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SelectBook.resx">
+      <DependentUpon>SelectBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectBorrower.resx">
+      <DependentUpon>selectBorrower.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="selectCategoryForm.resx">
       <DependentUpon>selectCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectDepartsecForm.resx">
+      <DependentUpon>selectDepartsecForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="selectDesignationForm.resx">
       <DependentUpon>selectDesignationForm.cs</DependentUpon>
@@ -202,6 +653,54 @@
     <EmbeddedResource Include="selectPublishersForm.resx">
       <DependentUpon>selectPublishersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Shorcuts.resx">
+      <DependentUpon>Shorcuts.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="castingtest.xsc">
+      <DependentUpon>castingtest.xsd</DependentUpon>
+    </None>
+    <None Include="castingtest.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>castingtest.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="castingtest.xss">
+      <DependentUpon>castingtest.xsd</DependentUpon>
+    </None>
+    <None Include="databaseDataSet.xsc">
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="databaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>databaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="databaseDataSet.xss">
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="databaseView.xsc">
+      <DependentUpon>databaseView.xsd</DependentUpon>
+    </None>
+    <None Include="databaseView.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>databaseView.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="databaseView.xss">
+      <DependentUpon>databaseView.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetqr.xsc">
+      <DependentUpon>DataSetqr.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetqr.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetqr.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetqr.xss">
+      <DependentUpon>DataSetqr.xsd</DependentUpon>
+    </None>
+    <None Include="Library Managment System_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,9 +711,70 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="viewDataSet.xsc">
+      <DependentUpon>viewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="viewDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>viewDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="viewDataSet.xss">
+      <DependentUpon>viewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="viewDataSetIssue.xsc">
+      <DependentUpon>viewDataSetIssue.xsd</DependentUpon>
+    </None>
+    <None Include="viewDataSetIssue.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>viewDataSetIssue.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="viewDataSetIssue.xss">
+      <DependentUpon>viewDataSetIssue.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-book-shelf-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-book-shelf-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-name-tag-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-literature-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-book-96 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="taskbarlogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net451\System.Data.SQLite.Core.targets')" />

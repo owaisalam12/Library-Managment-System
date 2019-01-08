@@ -24,6 +24,8 @@ namespace Library_Managment_System
 
                 string query = "SELECT desigid As DesignationID, designation As Designation, descreiption As Description FROM tbldesignation;";
                 SQLiteCommand myCommand = new SQLiteCommand(query, db.myConnection);
+                
+               // db.myConnection.Open();
                 db.OpenConnection();
                 var result = myCommand.ExecuteNonQuery();
 
@@ -89,7 +91,7 @@ namespace Library_Managment_System
             indexrow = e.RowIndex;
             DataGridViewRow row = dataGridView1.Rows[indexrow];
             designationPassingText = row.Cells[1].Value.ToString();
-            // MessageBox.Show(publisherPassingText);
+            //MessageBox.Show(designationPassingText);
             this.Close();
         }
     }
