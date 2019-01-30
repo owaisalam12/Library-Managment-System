@@ -143,5 +143,10 @@ namespace Library_Managment_System
         {
 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

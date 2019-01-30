@@ -26,6 +26,7 @@ namespace Library_Managment_System
             if (myConnection.State != System.Data.ConnectionState.Open)
             {
                 myConnection.Open();
+                //myConnection.ChangePassword("abcd");
             }
         }
         public void CloseConnection()
